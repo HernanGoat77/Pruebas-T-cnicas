@@ -1,6 +1,6 @@
 package com.ceiba.biblioteca;
 
-// clase para capturar mensajes de error y devolverlos como respuesta cuando ocurre algún problema en tu aplicación.
+// clase para capturar mensajes de error y devolverlos como respuesta cuando ocurre algún problema en la aplicación.
 public class RespuestaError {
 
     private String mensaje; //atributo

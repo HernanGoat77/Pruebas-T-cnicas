@@ -10,7 +10,7 @@ import com.ceiba.biblioteca.Repositorio.PrestamoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component //  hacemos esta notacion para indicar a Spring que esta clase estara en el contenedor de spring para luego inyectarla
 public class PrestamoLogica {
 
     @Autowired // hace inyeccion de dependecias automaticamente
@@ -27,7 +27,7 @@ public class PrestamoLogica {
         List<Prestamo> prestamos = prestamoRepositorio.findAll(); // Listamos todos prestamos realizados
         for (Prestamo prestamo : prestamos) {
             if (prestamo.getIdentificacionUsuario().equals(identificacionUsuario) && prestamo.getTipoUsuario() == 3) {  //Comparamos la identificación del usuario del préstamo (prestamo.getIdentificacionUsuario()) con la identificación que esta en la solicitud
-                throw new IllegalArgumentException("El usuario con identificación " + identificacionUsuario + " ya tiene un libro prestado por lo cual no se le puede realizar otro préstamo");
+                throw new IllegalArgumentException("El usuario con identificación " + identificacionUsuario + " ya tiene un libro prestado por lo cual no se le puede realizar otro préstamo");// lanzamos una exrcpcionS
             }
         }
     }

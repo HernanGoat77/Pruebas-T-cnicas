@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@Component
+@Component // hacemos esta notacion para indicar a Spring que esta clase estara en el contenedor de spring para luego inyectarla.. ¿Es reduntante tambien tener @Service??
 public class PrestamoServicio {
 
     @Autowired //inyectando a PrestamoService la variable restamoRepo para poder utlizarla dentro de esta clase

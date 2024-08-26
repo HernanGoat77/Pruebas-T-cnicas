@@ -33,7 +33,7 @@ public class PrestamoControlador {
             }
             LocalDate fechaDevolucion = prestamoLogica.calcularFechaDevolucion(prestamo.getTipoUsuario(), LocalDate.now());//Calcula la fecha máxima de devolución 
             prestamo.setFechaDevolucion(fechaDevolucion);
-            Prestamo prestamoCreado = prestamoServicio.crearPrestamo(prestamo);
+            Prestamo prestamoCreado = prestamoServicio.crearPrestamo(prestamo); //Creamos un nuevo objeto de tipo Prestamo y Llamamo al servicio de préstamos para crear un nuevo préstamo en la base de datos
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             String fechaMaximaDevolucion = fechaDevolucion.format(formatter);
@@ -43,7 +43,7 @@ public class PrestamoControlador {
                     fechaMaximaDevolucion
             );
             return ResponseEntity.ok(respuesta);// respuesta exitosa: Retorna un objeto JSON
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) { //  HttpStatus.BAD_REQUEST la utilizamos para especificar que la respuesta HTTP debería ser 400 cuando ocurre un error de validación
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new RespuestaError(e.getMessage()));//: Si ocurre un error de validación, retorna un código de estado HTTP 400 (Bad Request) junto con un objeto JSON RespuestaError que contiene el mensaje de error.
         }
     }

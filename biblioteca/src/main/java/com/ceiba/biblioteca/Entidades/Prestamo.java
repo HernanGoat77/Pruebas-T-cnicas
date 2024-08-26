@@ -14,7 +14,7 @@ import java.time.LocalDate;
 public class Prestamo {
 
 
-    @Id // indicamos que el atributo id es la clave primaria dentro de la entidad usuario
+    @Id // indicamos que el atributo id es la clave primaria dentro de la entidad Prestamo
     @GeneratedValue(strategy = GenerationType.IDENTITY) // se genera de forma IDENTITY para ahorrarnos el trabajo de hacerlo manaul
     private Long id;
     
